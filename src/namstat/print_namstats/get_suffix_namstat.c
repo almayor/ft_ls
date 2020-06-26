@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 05:08:07 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 05:24:56 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/26 18:50:49 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char		*get_suffix_namstat(t_namstat *nst)
 		return ("%");
 	if (g_opt.F && is_fifo_namstat(nst))
 		return ("|");
-	if ((g_opt.t || g_opt.F) && is_dir_namstat(nst))
+	if ((g_opt.p || g_opt.F) && is_dir_namstat(nst))
 		return ("/");
 	if (g_opt.F && is_exe_namstat(nst))
 		return ("*");

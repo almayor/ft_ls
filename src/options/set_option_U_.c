@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_namstats.c                                   :+:      :+:    :+:   */
+/*   set_option_U_.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 22:33:33 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 21:17:06 by unite            ###   ########.fr       */
+/*   Created: 2020/06/25 18:50:50 by unite             #+#    #+#             */
+/*   Updated: 2020/06/26 21:50:30 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void			print_namstats(t_namstat **nst)
+void	set_option_U()
 {
-	while (*nst)
-	{
-		ft_printf("%s%s%s%s\n",
-			get_color_namstat(*nst),
-			(*nst)->base,
-			BG_DEF FG_DEF,
-			get_suffix_namstat(*nst));
-		nst++;
-	}
+	g_opt.U = 1;
+	g_opt.c = 0;
 }

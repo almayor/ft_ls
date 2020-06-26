@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 05:27:42 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/27 01:44:18 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,40 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <pwd.h>
+#include <grp.h>
 #include "libftprintfgnl.h"
-#include "color_escape_codes.h"
+#include "ansi_escape_codes.h"
 
-# define OPTIONS	"@AFGPRSadelmrt1"
+# define OPTIONS	"@AFGPRSUacdeflmprt1"
 
 typedef struct	s_options
 {
 	int			at;
 	int			A;
+	int			C;
 	int			F;
 	int			G;
 	int			P;
 	int			R;
 	int			S;
+	int			U;
 	int			a;
+	int			c;
 	int			d;
 	int			e;
+	int			f;
+	int			h;
+	int			i;
 	int			l;
 	int			m;
+	int			n;
+	int			o;
+	int			p;
 	int			r;
+	int			s;
 	int			t;
+	int			u;
 	int			_1;
 }				t_options;
 
@@ -53,13 +66,23 @@ void			set_option_G();
 void			set_option_P();
 void			set_option_R();
 void			set_option_S();
+void			set_option_U();
 void			set_option_a();
+void			set_option_c();
 void			set_option_d();
 void			set_option_e();
+void			set_option_f();
+void			set_option_h();
+void			set_option_i();
 void			set_option_l();
 void			set_option_m();
+void			set_option_n();
+void			set_option_o();
+void			set_option_p();
 void			set_option_r();
+void			set_option_s();
 void			set_option_t();
+void			set_option_u();
 void			set_options_env();
 
 typedef struct	s_namstat
@@ -70,6 +93,8 @@ typedef struct	s_namstat
 }				t_namstat;
 
 int				cmp_alnum_namstats(t_namstat *n1, t_namstat *n2);
+int				cmp_birthtime_namstats(t_namstat *n1, t_namstat *n2);
+int				cmp_ctime_namstats(t_namstat *n1, t_namstat *n2);
 int				cmp_mtime_namstats(t_namstat *n1, t_namstat *n2);
 int				cmp_size_namstats(t_namstat *n1, t_namstat *n2);
 t_namstat		**getdir_namstats(const char *path);
@@ -79,12 +104,12 @@ t_namstat		*get_namstat(const char *path);
 void			process_namstats(t_namstat **nst);
 void			recurse_namstats(t_namstat **nst);
 void			sort_namstats(t_namstat **nst);
+blkcnt_t		nblocks_namstats(t_namstat	**nst);
 
 char			*get_color_namstat(t_namstat *nst);
 char			*get_suffix_namstat(t_namstat *nst);
 void			print_namstats(t_namstat **nst);
 
-ssize_t			count_files(const char *path);
 char			*join_path(char *buf, const char *path, const char *name);
 char			*get_basename(char *buf, const char *path);
 void			free_tab(char **tab);

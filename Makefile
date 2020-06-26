@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/06/26 05:23:27 by unite            ###   ########.fr        #
+#    Updated: 2020/06/26 21:51:30 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ main.c \
 namstat/free_namstats.c \
 namstat/get_namstat.c \
 namstat/getdir_namstats.c \
+namstat/nblocks_namstats.c \
 namstat/is_namstat/is_blk_namstat.c \
 namstat/is_namstat/is_chr_namstat.c \
 namstat/is_namstat/is_dir_namstat.c \
@@ -33,6 +34,8 @@ namstat/print_namstats/get_suffix_namstat.c \
 namstat/process_namstats.c \
 namstat/recurse_namstats.c \
 namstat/sort_namstats/cmp_alnum_namstats.c \
+namstat/sort_namstats/cmp_birthtime_namstats.c \
+namstat/sort_namstats/cmp_ctime_namstats.c \
 namstat/sort_namstats/cmp_mtime_namstats.c \
 namstat/sort_namstats/cmp_size_namstats.c \
 namstat/sort_namstats/sort_namstats.c \
@@ -44,17 +47,20 @@ options/set_option_G_.c \
 options/set_option_P_.c \
 options/set_option_R_.c \
 options/set_option_S_.c \
+options/set_option_U_.c \
 options/set_option_a.c \
 options/set_option_at.c \
+options/set_option_c.c \
 options/set_option_d.c \
 options/set_option_e.c \
+options/set_option_f.c \
 options/set_option_l.c \
 options/set_option_m.c \
+options/set_option_p.c \
 options/set_option_r.c \
 options/set_option_t.c \
 options/set_options_env.c \
 utils/basename_path.c \
-utils/count_files.c \
 utils/free_tab.c \
 utils/join_path.c \
 utils/len_tab.c \
@@ -78,6 +84,7 @@ PATHI = include $(PATHL)
 COMPILE = $(CC) -c
 LINK = $(CC)
 
+CFLAGS += -Werror
 CFLAGS += -O3 -std=gnu11 -ffast-math -march=native
 CFLAGS += -MMD
 CFLAGS += $(foreach path, $(PATHI), -I$(path))
@@ -109,7 +116,7 @@ $(PATHO)/%.o : $(PATHS)/%.c
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re test
+.PHONY : all clean fclean re re-shallow test
 
 all : $(PATHL)/libftprintfgnl.a $(NAME)
 
@@ -119,6 +126,11 @@ fclean : clean
 clean :
 	$(RM) -rf $(PATHO)
 	$(MAKE) -C $(PATHL) fclean
+
+re-shallow :
+	$(RM) -f $(NAME)
+	$(RM) -rf $(PATHO)
+	$(MAKE) $(NAME)
 
 re : fclean all
 

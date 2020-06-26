@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_namstats.c                                   :+:      :+:    :+:   */
+/*   cmp_birthtime_namstats.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 22:33:33 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 21:17:06 by unite            ###   ########.fr       */
+/*   Created: 2020/06/25 01:39:47 by unite             #+#    #+#             */
+/*   Updated: 2020/06/26 21:49:41 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void			print_namstats(t_namstat **nst)
+int	cmp_birthtime_namstats(t_namstat *n1, t_namstat *n2)
 {
-	while (*nst)
-	{
-		ft_printf("%s%s%s%s\n",
-			get_color_namstat(*nst),
-			(*nst)->base,
-			BG_DEF FG_DEF,
-			get_suffix_namstat(*nst));
-		nst++;
-	}
+	struct timespec	n1_mtime;
+	struct timespec	n2_mtime;
+
+	n1_mtime = n1->stat.st_birthtimespec;
+	n2_mtime = n2->stat.st_birthtimespec;
+	if (n1_mtime.tv_sec < n2_mtime.tv_sec)
+		return (-1);
+	if (n1_mtime.tv_sec > n2_mtime.tv_sec)
+		return (1);
+	if (n1_mtime.tv_nsec < n2_mtime.tv_nsec)
+		return (-1);
+	if (n1_mtime.tv_nsec > n2_mtime.tv_nsec)
+		return (1);
+	return (0);
 }

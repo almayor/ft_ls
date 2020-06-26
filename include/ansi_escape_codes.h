@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_escape_codes.h                               :+:      :+:    :+:   */
+/*   ansi_escape_codes.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:51:36 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 05:54:19 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/26 06:16:53 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_ESCAPE_CODES_H
-# define COLOR_ESCAPE_CODES_H
+#ifndef ANSI_ESCAPE_CODES_H
+# define ANSI_ESCAPE_CODES_H
 
 # define FG_BLK		"\033[30m"
 # define FG_RED		"\033[31m"
