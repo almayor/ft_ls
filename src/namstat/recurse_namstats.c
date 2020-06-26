@@ -6,13 +6,13 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 22:34:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/25 08:53:19 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/25 23:41:58 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	recurse_namstats(t_namstat **nst, const t_options *opt)
+void	recurse_namstats(t_namstat **nst)
 {
 	int			first;
 	t_namstat	**dir_nst;
@@ -31,7 +31,7 @@ void	recurse_namstats(t_namstat **nst, const t_options *opt)
 			else
 			{
 				ft_printf("%s:\n", (*nst)->path);
-				process_namstats(dir_nst, opt);
+				process_namstats(dir_nst);
 				free_namstats(dir_nst);
 			}
 		}

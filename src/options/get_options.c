@@ -6,49 +6,47 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 23:39:15 by unite             #+#    #+#             */
-/*   Updated: 2020/06/25 04:47:16 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/26 04:25:10 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static int	get_options_single(const char *arg, t_options *opt)
-{
-	while (*(++arg))
-	{
-		if (*arg == 't')
-			opt->t = 1;
-		else if (*arg == 'a')
-			opt->a = 1;
-		else if (*arg == 'R')
-			opt->R = 1;
-		else if (*arg == 'd')
-			opt->d = 1;
-		else if (*arg == 'l')
-			opt->l = 1;
-		else if (*arg == 'G')
-			opt->G = 1;
-		else if (*arg == 'r')
-			opt->r = 1;
-		else
-		{
-			ft_printf("ft_ls: illegal option -- %c\n", *arg);
-			ft_printf("usage: ls [%s] [file ...]\n", OPTIONS);
-			return (-1);
-		}
-	}
-	return (0);
-}
+static void	(*const g_dispatch_table[128])(void) = {
+	['1'] = &set_option_1,
+	['A'] = &set_option_A,
+	['F'] = &set_option_F,
+	['G'] = &set_option_G,
+	['P'] = &set_option_P,
+	['R'] = &set_option_R,
+	['S'] = &set_option_S,
+	['a'] = &set_option_a,
+	['d'] = &set_option_d,
+	['e'] = &set_option_e,
+	['l'] = &set_option_l,
+	['m'] = &set_option_m,
+	['r'] = &set_option_r,
+	['t'] = &set_option_t,
+	['@'] = &set_option_at,
+};
 
-int			get_options(char ***argv, t_options *opt)
+int			get_options(char ***argv)
 {
-	(*argv)++;
-	ft_memset(opt, 0, sizeof(t_options));
-	while (**argv && **argv[0] == '-' && ft_strlen(**argv) > 1)
+	ft_memset(&g_opt, 0, sizeof(t_options));
+	set_options_env();
+	while (*(++(*argv)) && **argv[0] == '-' && ft_strlen(**argv) > 1)
 	{
-		if (get_options_single(**argv, opt))
-			return (-1);
-		(*argv)++;
+		while (*(++(**argv)))
+		{
+			if (g_dispatch_table[***argv])
+				g_dispatch_table[***argv]();
+			else
+			{
+				ft_printf("ft_ls: illegal option -- %c\n", ***argv);
+				ft_printf("usage: ls [%s] [file ...]\n", OPTIONS);
+				return (-1);
+			}
+		}
 	}
 	return (0);
 }
