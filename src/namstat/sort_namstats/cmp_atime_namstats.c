@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   cmp_atime_namstats.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/25 01:39:47 by unite             #+#    #+#             */
+/*   Updated: 2020/06/27 04:47:57 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_nlink_namstat(t_namstat *nst)
+int	cmp_atime_namstats(t_namstat *n1, t_namstat *n2)
 {
-	static char	nlink[NLINK_T_BOUND + 1];
+	struct timespec	n1_mtime;
+	struct timespec	n2_mtime;
 
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
+	n1_mtime = n1->stat.st_atimespec;
+	n2_mtime = n2->stat.st_atimespec;
+	if (n1_mtime.tv_sec < n2_mtime.tv_sec)
+		return (-1);
+	if (n1_mtime.tv_sec > n2_mtime.tv_sec)
+		return (1);
+	if (n1_mtime.tv_nsec < n2_mtime.tv_nsec)
+		return (-1);
+	if (n1_mtime.tv_nsec > n2_mtime.tv_nsec)
+		return (1);
+	return (0);
 }

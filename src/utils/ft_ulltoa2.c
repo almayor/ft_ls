@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   ft_ulltoa2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/26 23:44:40 by unite             #+#    #+#             */
+/*   Updated: 2020/06/27 19:25:46 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_nlink_namstat(t_namstat *nst)
+static size_t	get_len(unsigned long long num)
 {
-	static char	nlink[NLINK_T_BOUND + 1];
+	size_t	i;
 
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
+	i = 1;
+	while (num /= 10)
+		i++;
+	return (i);
+}
+
+char			*ft_ulltoa2(unsigned long long num, char *buf)
+{
+	size_t	len;
+
+	len = get_len(num);
+	while (num)
+	{
+		buf[--len] = num % 10 + '0';
+		num /= 10;
+	}
+	return (buf);
 }

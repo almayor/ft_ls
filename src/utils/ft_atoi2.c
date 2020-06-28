@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nblocks_namstats.c                                 :+:      :+:    :+:   */
+/*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 04:27:02 by unite            ###   ########.fr       */
+/*   Created: 2019/09/04 23:56:29 by unite             #+#    #+#             */
+/*   Updated: 2020/06/28 09:30:53 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-
-blkcnt_t	nblocks_namstats(t_namstat	**nst)
+int	ft_atoi2(const char *str, int *resp)
 {
-	blkcnt_t	nblocks;
+	long long	res;
+	int			negative;
 
-	nblocks = 0;
-	while (*nst)
+	while (ft_isspace(*str))
+		str++;
+	negative = 0;
+	if (*str == '-' || *str == '+')
 	{
-		if (!is_blk_namstat(*nst) && !is_chr_namstat(*nst))
-			nblocks += (*nst)->stat.st_blocks * (g_env.blksize / 512);
-		nst++;
+		negative = *str == '-' ? 1 : 0;
+		str++;
 	}
-	return (nblocks);
+	res = 0;
+	while (ft_isdigit(*str))
+	{
+		res = res * 10 - (*str - '0');
+		str++;
+		if (negative && res < INT_MIN)
+			return (1);
+		if (!negative && res < -INT_MAX)
+			return (-1);
+	}
+	*resp = negative ? res : -res;
+	return (0);
 }

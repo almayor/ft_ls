@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   get_time_namstat.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/26 22:08:20 by unite             #+#    #+#             */
+/*   Updated: 2020/06/28 10:54:20 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_nlink_namstat(t_namstat *nst)
+char	*get_time_namstat(t_namstat *nst)
 {
-	static char	nlink[NLINK_T_BOUND + 1];
+	char	*time;
+	time_t	tv_sec;
 
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
+	if (g_opt.c)
+		tv_sec = nst->stat.st_ctimespec.tv_sec;
+	else if (g_opt.u)
+		tv_sec = nst->stat.st_atimespec.tv_sec;
+	else if (g_opt.U)
+		tv_sec = nst->stat.st_birthtimespec.tv_sec;
+	else
+		tv_sec = nst->stat.st_mtimespec.tv_sec;
+	time = ctime(&tv_sec);
+	if (!g_opt.T)
+		time[16] = 0;
+	else
+		time[24] = 0;
+	return (time);
 }

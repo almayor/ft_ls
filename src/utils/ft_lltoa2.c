@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uint32_itoa2.c                                  :+:      :+:    :+:   */
+/*   ft_lltoa2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:44:40 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 23:51:10 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/28 09:36:21 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static size_t	ft_uint32_len(unsigned long n)
+static size_t	get_len(long long num)
 {
 	size_t	i;
 
 	i = 1;
-	while (n /= 10)
+	while (num /= 10)
 		i++;
 	return (i);
 }
 
-char			*ft_uint32_itoa2(unsigned long num, char *buf)
+char			*ft_lltoa2(long long num, char *buf)
 {
-	size_t			len;
-	unsigned long	tmp;
+	size_t	len;
 
-	len = ft_uint32_len(n);
-	tmp = n;
-	buf[--len] = tmp % 10 + '0';
-	while (tmp /= 10)
-		buf[--len] = tmp % 10 + '0';
+	len = get_len(num);
+	if (num < 0)
+	{
+		buf[0] = '-';
+		len++;
+	}
+	while (num)
+	{
+		buf[--len] = (num < 0 ? -(num % 10) : num % 10) + '0';
+		num /= 10;
+	}
 	return (buf);
 }

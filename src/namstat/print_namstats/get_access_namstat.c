@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 23:20:31 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/28 09:12:44 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char		*get_access_namstat(t_namstat *nst)
 	i = 0;
 	while (i < 9)
 	{
-		access[i + 1] = (nst->stat.st_mode & (1 << (8 - i))) ? chars[i] : '-';
+		access[i + 1] = (nst->stat.st_mode & (1 << (8 - i))) ? bits[i] : '-';
 		i++;
 	}
 	if (get_xattr_namstat(nst))

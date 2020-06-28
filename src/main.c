@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:26:07 by unite             #+#    #+#             */
-/*   Updated: 2020/06/27 01:31:56 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/28 18:03:53 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ int main(int argc, char **argv)
 	t_namstat	**regs;
 	t_namstat	**dirs;
 
-	if (get_options(&argv))
+	if (get_options(&argv) ||
+		get_environment())
 		return (1);
-	dirs = 0;
-	if ((!*argv && !(regs = getdir_namstats("."))) ||
-		(*argv && (
-			!(regs = ft_calloc(sizeof(t_namstat *), argc)) ||
-			!(dirs = ft_calloc(sizeof(t_namstat *), argc)) ||
-			init_paths(argv, regs, dirs))))
-		perrror();
+	if (!*argv)
+		argv = (char *[2]){".", 0};
+	if (!(regs = ft_calloc(sizeof(t_namstat *), len_tab(argv) + 1)) ||
+		!(dirs = ft_calloc(sizeof(t_namstat *), len_tab(argv) + 1)) ||
+		init_paths(argv, regs, dirs))
+		perror("ft_ls");
 	else
 	{
 		process_namstats(regs);

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:07:38 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 23:09:20 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/28 14:29:31 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,24 +68,20 @@ static int	(*const g_color_type[])(t_namstat *nst) = {
 
 char		*get_color_namstat(t_namstat *nst)
 {
-	static char	escape_seq[50];
-	char		*lscolors;
+	static char	escape_seq[21];
 	size_t		i;
 
-	if (g_opt.G && (lscolors = getenv("LSCOLORS")))
+	i = 0;
+	while (i < 11)
 	{
-		i = 0;
-		while (i < 11)
+		if (g_color_type[i](nst))
 		{
-			if (g_color_type[i](nst))
-			{
-				ft_memset(escape_seq, 0, 50);
-				ft_strcat(escape_seq, g_fg_escape[lscolors[2 * i]]);
-				ft_strcat(escape_seq, g_bg_escape[lscolors[2 * i + 1]]);
-				return (escape_seq);
-			}
-			i++;
+			ft_memset(escape_seq, 0, 21);
+			ft_strcat(escape_seq, g_fg_escape[g_env.lscolors[2 * i]]);
+			ft_strcat(escape_seq, g_bg_escape[g_env.lscolors[2 * i + 1]]);
+			return (escape_seq);
 		}
+		i++;
 	}
 	return ("");
 }

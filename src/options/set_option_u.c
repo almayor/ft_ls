@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   set_option_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/25 18:51:54 by unite             #+#    #+#             */
+/*   Updated: 2020/06/27 04:33:35 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_nlink_namstat(t_namstat *nst)
+void	set_option_u()
 {
-	static char	nlink[NLINK_T_BOUND + 1];
-
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
+	g_opt.u = 1;
+	g_opt.c = 0;
+	g_opt.U = 0;
 }

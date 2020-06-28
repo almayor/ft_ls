@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   environment.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
+/*   Updated: 2020/06/28 08:55:55 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#ifndef ENVIRONMENT_H
+# define ENVIRONMENT_H
 
-char	*get_nlink_namstat(t_namstat *nst)
+typedef struct	s_environment
 {
-	static char	nlink[NLINK_T_BOUND + 1];
+	blksize_t	blksize;
+	char		lscolors[23];
+}				t_environment;
 
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
-}
+t_environment	g_env;
+
+void			get_blocksize(void);
+int				get_environment(void);
+void			get_lscolors(void);
+
+#endif

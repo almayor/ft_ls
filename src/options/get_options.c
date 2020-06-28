@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 23:39:15 by unite             #+#    #+#             */
-/*   Updated: 2020/06/27 01:32:29 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/28 10:23:17 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,30 @@ static void	(*const g_dispatch_table[128])(void) = {
 	['P'] = &set_option_P,
 	['R'] = &set_option_R,
 	['S'] = &set_option_S,
+	['T'] = &set_option_T,
 	['U'] = &set_option_U,
 	['a'] = &set_option_a,
 	['c'] = &set_option_c,
 	['d'] = &set_option_d,
 	['e'] = &set_option_e,
 	['f'] = &set_option_f,
+	['h'] = &set_option_h,
+	['i'] = &set_option_i,
 	['l'] = &set_option_l,
 	['m'] = &set_option_m,
+	['n'] = &set_option_n,
+	['o'] = &set_option_o,
 	['p'] = &set_option_p,
 	['r'] = &set_option_r,
+	['s'] = &set_option_s,
 	['t'] = &set_option_t,
+	['u'] = &set_option_u,
 	['@'] = &set_option_at,
 };
 
 int			get_options(char ***argv)
 {
 	ft_memset(&g_opt, 0, sizeof(t_options));
-	set_options_env();
 	while (*(++(*argv)) && **argv[0] == '-' && ft_strlen(**argv) > 1)
 	{
 		while (*(++(**argv)))
@@ -52,5 +58,6 @@ int			get_options(char ***argv)
 			}
 		}
 	}
+	set_options_env();
 	return (0);
 }

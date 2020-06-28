@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 15:34:33 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 21:49:25 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/27 04:54:26 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ static int	cmp_namstats(t_namstat *n1, t_namstat *n2)
 
 	if ((g_opt.t && (
 			(g_opt.c && (res = -cmp_ctime_namstats(n1, n2))) ||
+			(g_opt.u && (res = -cmp_atime_namstats(n1, n2))) ||
 			(g_opt.U && (res = -cmp_birthtime_namstats(n1, n2))) ||
-			(!g_opt.c && !g_opt.U && (res = -cmp_mtime_namstats(n1, n2))))) ||
+			(!g_opt.c && !g_opt.u && !g_opt.U &&
+				(res = -cmp_mtime_namstats(n1, n2))))) ||
 		(g_opt.S && (res = -cmp_size_namstats(n1, n2))) ||
 		(res = cmp_alnum_namstats(n1, n2)))
 		return (g_opt.r ? -res : res);

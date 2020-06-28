@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nlink_namstat.c                                :+:      :+:    :+:   */
+/*   get_lscolors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:21:53 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:15:50 by unite            ###   ########.fr       */
+/*   Created: 2020/06/27 23:58:59 by unite             #+#    #+#             */
+/*   Updated: 2020/06/28 09:05:45 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_nlink_namstat(t_namstat *nst)
+void	get_lscolors(void)
 {
-	static char	nlink[NLINK_T_BOUND + 1];
+	char		*lsc;
+	size_t		i;
 
-	ft_memset(nlink, 0, NLINK_T_BOUND + 1);
-	return (ft_ulltoa2(nst->stat.st_nlink, nlink));
+	ft_memset(g_env.lscolors, 'x', 22);
+	if (!(lsc = getenv("LSCOLORS")))
+	{
+		ft_strcpy(g_env.lscolors, "exfxcxdxbxegedabagacad");
+		return ;
+	}
+	i = 0;
+	while (i < 22)
+	{
+		if (!ft_strchr("abcdefghABCDEFGHx", lsc[i]))
+			ft_dprintf(2, "invalid character '%c' in LSCOLORS env var", lsc[i]);
+		else
+			g_env.lscolors[i] = lsc[i];
+		i++;
+	}
 }
