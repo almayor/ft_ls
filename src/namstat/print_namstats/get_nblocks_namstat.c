@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_size_namstat.c                                 :+:      :+:    :+:   */
+/*   get_nblocks_namstat.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 05:13:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 04:29:14 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 23:52:20 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_size_namstat(t_namstat *nst)
+char	*get_nblocks_namstat(t_namstat *nst)
 {
-	static char	size[OFF_T_BOUND + 1];
-	const char	*units[] = {"B", "K", "M", "G", "T", "P"};
-	long double	frac;
-	size_t		i;
+	static char	nblocks_s[OFF_T_BOUND + 1];
+	blkcnt_t	nblocks;
 
-	if (g_opt.h)
+	if (g_opt.s)
 	{
-		frac = nst->stat.st_size;
-		i = 0;
-		while (frac >= 1024)
-		{
-			frac /= 1024;
-			i++;
-		}
-		if (frac < 10)
-			ft_sprintf(size, " %.1f%s", frac, units[i]);
+		if (g_opt.k)
+			nblocks = nst->stat.st_blocks / 2;
 		else
-			ft_sprintf(size, " %ju%s", (uintmax_t)frac, units[i]);
+			nblocks = nst->stat.st_blocks / (g_env.blksize / 512);
+		ft_sprintf(nblocks_s, "%ju", nblocks);
 	}
 	else
-		ft_sprintf(size, " %ju", (uintmax_t)nst->stat.st_size);
-	return (size);
+		nblocks_s[0] = '\0';
+	return (nblocks_s);
 }

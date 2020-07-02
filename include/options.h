@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 21:17:05 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 23:32:16 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_options
 	int			f;
 	int			h;
 	int			i;
+	int			k;
 	int			l;
 	int			m;
 	int			n;
@@ -70,6 +71,7 @@ void			set_option_e();
 void			set_option_f();
 void			set_option_h();
 void			set_option_i();
+void			set_option_k();
 void			set_option_l();
 void			set_option_m();
 void			set_option_n();

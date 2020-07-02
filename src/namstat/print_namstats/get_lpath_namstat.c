@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_dev_namstat.c                                  :+:      :+:    :+:   */
+/*   get_lpath_namstat.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 05:13:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 04:36:12 by unite            ###   ########.fr       */
+/*   Created: 2020/07/02 21:38:12 by unite             #+#    #+#             */
+/*   Updated: 2020/07/03 01:21:07 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_dev_namstat(t_namstat *nst)
+char	*get_lpath_namstat(t_namstat *nst)
 {
-	static char	dev[7];
+	static char	link[PATH_MAX + 1 + 4];
 
-	ft_sprintf(dev, "%ju, %3ju",
-		(uintmax_t)major(nst->stat.st_rdev),
-		(uintmax_t)minor(nst->stat.st_rdev));
-	return (dev);
+	ft_memset(link, 0, PATH_MAX + 1);
+	if (is_lnk_namstat(nst) && g_opt.l)
+	{
+		ft_strcat(link, " -> ");
+		if (readlink(nst->path, link + 4, PATH_MAX + 1) < 0)
+			perror("ft_ls");
+		if (g_opt.q)
+			printable_path(link);
+	}
+	return (link);
 }

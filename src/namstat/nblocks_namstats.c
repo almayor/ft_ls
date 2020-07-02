@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 04:27:02 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 23:52:29 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ blkcnt_t	nblocks_namstats(t_namstat	**nst)
 	while (*nst)
 	{
 		if (!is_blk_namstat(*nst) && !is_chr_namstat(*nst))
-			nblocks += (*nst)->stat.st_blocks * (g_env.blksize / 512);
+			nblocks += (*nst)->stat.st_blocks / (g_env.blksize / 512);
 		nst++;
 	}
 	return (nblocks);

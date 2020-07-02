@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 21:46:42 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 01:21:28 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ size_t			len_namstats(t_namstat **nst);
 blkcnt_t		nblocks_namstats(t_namstat	**nst);
 void			process_namstats(t_namstat **nst);
 void			recurse_namstats(t_namstat **nst);
+t_namstat		*get_namstat(const char *path);
+t_namstat		**getdir_namstats(const char *path);
 
 /*
 ** Sorting
@@ -59,20 +61,17 @@ char			*get_access_namstat(t_namstat *nst);
 char			*get_acl_namstat(t_namstat *nst);
 char			*get_color_namstat(t_namstat *nst);
 char			*get_reset_color_namstat(t_namstat *nst);
-char			*get_dev_namstat(t_namstat *nst);
 char			*get_group_namstat(t_namstat *nst);
 char			*get_ino_namstat(t_namstat *nst);
-char			*get_lnk_namstat(t_namstat *nst);
+char			*get_lpath_namstat(t_namstat *nst);
 char			*get_name_namstat(t_namstat *nst);
-t_namstat		*get_namstat(const char *path);
+char			*get_nblocks_namstat(t_namstat *path);
 char			*get_nlink_namstat(t_namstat *nst);
 char			*get_size_dev_namstat(t_namstat *nst);
-char			*get_size_namstat(t_namstat *nst);
 char			*get_suffix_namstat(t_namstat *nst);
 char			*get_time_namstat(t_namstat *nst);
 char			*get_user_namstat(t_namstat *nst);
 char			*get_xattr_namstat(t_namstat *nst);
-t_namstat		**getdir_namstats(const char *path);
 
 /*
 ** Describing

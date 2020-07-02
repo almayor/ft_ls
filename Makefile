@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/07/02 22:06:54 by unite            ###   ########.fr        #
+#    Updated: 2020/07/03 01:21:52 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,13 @@ SRC_NAME = \
 ./namstat/nblocks_namstats.c \
 ./namstat/print_namstats/get_access_namstat.c \
 ./namstat/print_namstats/get_color_namstat.c \
-./namstat/print_namstats/get_dev_namstat.c \
 ./namstat/print_namstats/get_group_namstat.c \
 ./namstat/print_namstats/get_ino_namstat.c \
-./namstat/print_namstats/get_lnk_namstat.c \
+./namstat/print_namstats/get_lpath_namstat.c \
 ./namstat/print_namstats/get_name_namstat.c \
+./namstat/print_namstats/get_nblocks_namstat.c \
 ./namstat/print_namstats/get_nlink_namstat.c \
 ./namstat/print_namstats/get_size_dev_namstat.c \
-./namstat/print_namstats/get_size_namstat.c \
 ./namstat/print_namstats/get_suffix_namstat.c \
 ./namstat/print_namstats/get_time_namstat.c \
 ./namstat/print_namstats/get_user_namstat.c \
@@ -80,6 +79,7 @@ SRC_NAME = \
 ./options/set_option_f.c \
 ./options/set_option_h.c \
 ./options/set_option_i.c \
+./options/set_option_k.c \
 ./options/set_option_l.c \
 ./options/set_option_m.c \
 ./options/set_option_n.c \
