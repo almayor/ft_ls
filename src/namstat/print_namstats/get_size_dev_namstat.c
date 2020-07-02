@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ulltoa2.c                                       :+:      :+:    :+:   */
+/*   get_size_dev_namstat.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/26 23:44:40 by unite             #+#    #+#             */
-/*   Updated: 2020/06/27 19:25:46 by unite            ###   ########.fr       */
+/*   Created: 2020/07/02 01:57:03 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 01:59:45 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static size_t	get_len(unsigned long long num)
+char	*get_size_dev_namstat(t_namstat *nst)
 {
-	size_t	i;
-
-	i = 1;
-	while (num /= 10)
-		i++;
-	return (i);
-}
-
-char			*ft_ulltoa2(unsigned long long num, char *buf)
-{
-	size_t	len;
-
-	len = get_len(num);
-	while (num)
-	{
-		buf[--len] = num % 10 + '0';
-		num /= 10;
-	}
-	return (buf);
+	if (is_blk_namstat(nst) || is_chr_namstat(nst))
+		return (get_dev_namstat(nst));
+	else
+		return (get_size_namstat(nst));
 }

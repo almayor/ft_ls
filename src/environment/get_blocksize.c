@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:28:02 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:02:57 by unite            ###   ########.fr       */
+/*   Updated: 2020/06/29 04:01:26 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	is_numeric_str(char *s)
 	while (*s)
 	{
 		if (!ft_isdigit(*s))
-			return (1);
+			return (0);
 		s++;
 	}
-	return (0);
+	return (1);
 }
 
 void		get_blocksize(void)

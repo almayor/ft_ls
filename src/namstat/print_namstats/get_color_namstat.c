@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:07:38 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 14:29:31 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 00:50:03 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char		*get_color_namstat(t_namstat *nst)
 	{
 		if (g_color_type[i](nst))
 		{
-			ft_memset(escape_seq, 0, 21);
+			escape_seq[0] = '\0';
 			ft_strcat(escape_seq, g_fg_escape[g_env.lscolors[2 * i]]);
 			ft_strcat(escape_seq, g_bg_escape[g_env.lscolors[2 * i + 1]]);
 			return (escape_seq);

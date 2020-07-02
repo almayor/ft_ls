@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:12:44 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 03:27:27 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,26 @@ static char	get_type_namstat(t_namstat *nst)
 	return ('-');
 }
 
+static int	has_acl_namstat(t_namstat *nst)
+{
+	acl_t		acl;
+	acl_entry_t	entry;
+
+	return ((acl = acl_get_link_np(nst->path, ACL_TYPE_EXTENDED)) &&
+			(acl_get_entry(acl, ACL_FIRST_ENTRY, &entry) > 0));
+}
+
+static int	has_xattr_namstat(t_namstat *nst)
+{
+	return (listxattr(nst->path, NULL, 0, XATTR_NOFOLLOW) > 0);
+}
+
 char		*get_access_namstat(t_namstat *nst)
 {
 	const char 	bits[] = "rwxrwxrwx";
 	static char	access[12];
 	size_t		i;
 
-	ft_memset(access, 0, 12);
 	access[0] = get_type_namstat(nst);
 	i = 0;
 	while (i < 9)
@@ -43,9 +56,11 @@ char		*get_access_namstat(t_namstat *nst)
 		access[i + 1] = (nst->stat.st_mode & (1 << (8 - i))) ? bits[i] : '-';
 		i++;
 	}
-	if (get_xattr_namstat(nst))
-		access[11] = '@';
-	else if (get_acl_namstat(nst))
-		access[11] = '+';
+	if (has_xattr_namstat(nst))
+		access[10] = '@';
+	else if (has_acl_namstat(nst))
+		access[10] = '+';
+	else
+		access[10] = ' ';
 	return (access);
 }

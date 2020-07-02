@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltoa2.c                                        :+:      :+:    :+:   */
+/*   ft_itoa2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:44:40 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:36:21 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 00:47:09 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static size_t	get_len(long long num)
+char	*ft_itoa2(intmax_t num, char *buf)
 {
-	size_t	i;
+	intmax_t	factor;
+	char		*ptr;
 
-	i = 1;
-	while (num /= 10)
-		i++;
-	return (i);
-}
-
-char			*ft_lltoa2(long long num, char *buf)
-{
-	size_t	len;
-
-	len = get_len(num);
+	ptr = buf;
+	factor = num < 0 ? -1 : 1;
+	while (num / factor >= 10)
+		factor *= 10;
 	if (num < 0)
+		*(buf++) = '-';
+	while (factor >= 1 || factor <= -1)
 	{
-		buf[0] = '-';
-		len++;
+		*(buf++) = num / factor + '0';
+		num %= factor;
+		factor /= 10;
 	}
-	while (num)
-	{
-		buf[--len] = (num < 0 ? -(num % 10) : num % 10) + '0';
-		num /= 10;
-	}
-	return (buf);
+	*(buf++) = 0;
+	return (ptr);
 }

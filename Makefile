@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/06/28 11:24:56 by unite            ###   ########.fr        #
+#    Updated: 2020/07/02 02:05:57 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,17 +32,17 @@ SRC_NAME = \
 ./namstat/iterdir_namstats.c \
 ./namstat/nblocks_namstats.c \
 ./namstat/print_namstats/get_access_namstat.c \
-./namstat/print_namstats/get_acl.namstat.c \
 ./namstat/print_namstats/get_color_namstat.c \
+./namstat/print_namstats/get_dev_namstat.c \
 ./namstat/print_namstats/get_group_namstat.c \
 ./namstat/print_namstats/get_ino_namstat.c \
 ./namstat/print_namstats/get_name_namstat.c \
 ./namstat/print_namstats/get_nlink_namstat.c \
+./namstat/print_namstats/get_size_dev_namstat.c \
 ./namstat/print_namstats/get_size_namstat.c \
 ./namstat/print_namstats/get_suffix_namstat.c \
 ./namstat/print_namstats/get_time_namstat.c \
 ./namstat/print_namstats/get_user_namstat.c \
-./namstat/print_namstats/get_xattr_namstat.c \
 ./namstat/print_namstats/print_namstats.c \
 ./namstat/process_namstats.c \
 ./namstat/recurse_namstats.c \
@@ -84,9 +84,9 @@ SRC_NAME = \
 ./utils/basename_path.c \
 ./utils/free_tab.c \
 ./utils/ft_atoi2.c \
-./utils/ft_ldtoa2.c \
-./utils/ft_lltoa2.c \
-./utils/ft_ulltoa2.c \
+./utils/ft_ftoa2.c \
+./utils/ft_itoa2.c \
+./utils/ft_utoa2.c \
 ./utils/join_path.c \
 ./utils/len_tab.c \
 ./utils/sort_tab.c \
@@ -141,9 +141,9 @@ $(PATHO)/%.o : $(PATHS)/%.c
 
 .DEFAULT_GOAL = all
 
-.PHONY : all clean fclean re re-shallow test
+.PHONY : all clean fclean re re-shallow test libftprintfgnl
 
-all : $(PATHL)/libftprintfgnl.a $(NAME)
+all : libftprintfgnl $(NAME)
 
 fclean : clean
 	$(RM) -f $(NAME)
@@ -159,7 +159,7 @@ re-shallow :
 
 re : fclean all
 
-$(PATHL)/libftprintfgnl.a :
+libftprintfgnl :
 	$(MAKE) -C $(PATHL)
 
 ################################################################################

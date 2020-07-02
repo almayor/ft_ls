@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:26:07 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 18:03:53 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 01:54:54 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	init_paths(char **paths, t_namstat **regs, t_namstat **dirs)
 			*dirs++ = nst;
 		else
 			*regs++ = nst;
+		errno = 0;
 		paths++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 15:39:03 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 21:22:06 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 01:38:20 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ t_namstat	**getdir_namstats(const char *path)
 	{
 		i = 0;
 		while (i < count)
+		{
 			if (!(nst[i++] = next_namstat(dir, path)))
 			{
 				free_namstats(nst);
 				nst = NULL;
 				break ;
 			}
+		}
 		closedir(dir);
 	}
 	return (nst);

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 01:15:55 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 04:31:18 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 01:36:51 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ t_namstat	*get_namstat(const char *path)
 		return (NULL);
 	ft_strcpy(nst->path, path);
 	get_basename(nst->base, path);
-	if ((g_opt.P && lstat(nst->path, &(nst->stat))) ||
-		(!g_opt.P && stat(nst->path, &(nst->stat))))
+	if (((g_opt.P || g_opt.l) && lstat(nst->path, &(nst->stat))) ||
+		(!g_opt.P && !g_opt.l && stat(nst->path, &(nst->stat))))
 	{
 		free(nst);
 		nst = NULL;

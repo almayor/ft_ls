@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 11:24:37 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 01:58:44 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ void			print_namstats(t_namstat **nst);
 char			*get_access_namstat(t_namstat *nst);
 char			*get_acl_namstat(t_namstat *nst);
 char			*get_color_namstat(t_namstat *nst);
+char			*get_dev_namstat(t_namstat *nst);
 char			*get_group_namstat(t_namstat *nst);
 char			*get_ino_namstat(t_namstat *nst);
 char			*get_name_namstat(t_namstat *nst);
 t_namstat		*get_namstat(const char *path);
 char			*get_nlink_namstat(t_namstat *nst);
+char			*get_size_dev_namstat(t_namstat *nst);
 char			*get_size_namstat(t_namstat *nst);
 char			*get_suffix_namstat(t_namstat *nst);
 char			*get_time_namstat(t_namstat *nst);

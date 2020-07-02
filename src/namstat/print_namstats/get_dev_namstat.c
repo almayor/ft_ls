@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldtoa2.c                                        :+:      :+:    :+:   */
+/*   get_dev_namstat.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 19:33:50 by unite             #+#    #+#             */
-/*   Updated: 2020/06/27 19:47:23 by unite            ###   ########.fr       */
+/*   Created: 2020/06/27 05:13:15 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 04:36:12 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*ft_ldtoa2(long double num, size_t precision, char *buf)
+char	*get_dev_namstat(t_namstat *nst)
 {
-	size_t	i;
+	static char	dev[7];
 
-	ft_lltoa2(num, buf);
-	if (precision)
-	{
-		ft_strcat(buf, ".");
-		i = ft_strlen(buf);
-		while (precision--)
-		{
-			num = (num - (long long)num) * 10;
-			buf[i] = num + '0';
-		}
-	}
-	return (buf);
+	ft_sprintf(dev, "%ju, %3ju",
+		(uintmax_t)major(nst->stat.st_rdev),
+		(uintmax_t)minor(nst->stat.st_rdev));
+	return (dev);
 }
