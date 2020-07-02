@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 08:55:55 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 06:35:01 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ typedef struct	s_environment
 {
 	blksize_t	blksize;
 	char		lscolors[23];
+	int			cols;
 }				t_environment;
 
 t_environment	g_env;
 
 void			get_blocksize(void);
+void			get_columns(void);
 int				get_environment(void);
 void			get_lscolors(void);
 

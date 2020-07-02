@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_environment.c                                  :+:      :+:    :+:   */
+/*   len_namstats.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 23:26:24 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 06:31:27 by unite            ###   ########.fr       */
+/*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 16:58:44 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	get_environment(void)
+
+size_t	len_namstats(t_namstat	**nst)
 {
-	get_blocksize();
-	get_lscolors();
-	get_columns();
-	return (0);
+	size_t	len;
+
+	len = 0;
+	while (nst[len])
+		len++;
+	return (len);
 }

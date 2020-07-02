@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 04:29:25 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 20:57:49 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/acl.h>
+#include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/xattr.h>

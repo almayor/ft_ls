@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_environment.c                                  :+:      :+:    :+:   */
+/*   ceil_divide.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 23:26:24 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 06:31:27 by unite            ###   ########.fr       */
+/*   Created: 2020/07/02 21:05:23 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 21:05:39 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	get_environment(void)
+size_t	ceil_divide(size_t a, size_t b)
 {
-	get_blocksize();
-	get_lscolors();
-	get_columns();
-	return (0);
+	return (a / b + (a % b != 0));
 }

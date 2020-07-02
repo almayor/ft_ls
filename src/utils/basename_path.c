@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_basename.c                                     :+:      :+:    :+:   */
+/*   basename_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 08:36:54 by unite             #+#    #+#             */
-/*   Updated: 2020/06/25 08:58:04 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 16:09:49 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*get_basename(char *buf, const char *path)
+char	*basename_path(char *buf, const char *path)
 {
 	const char	*last_slash;
 

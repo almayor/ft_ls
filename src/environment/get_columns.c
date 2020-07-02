@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_environment.c                                  :+:      :+:    :+:   */
+/*   get_columns.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 23:26:24 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 06:31:27 by unite            ###   ########.fr       */
+/*   Created: 2020/06/27 23:28:02 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 21:02:44 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	get_environment(void)
+void		get_columns(void)
 {
-	get_blocksize();
-	get_lscolors();
-	get_columns();
-	return (0);
+	struct winsize	win;
+
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &win);
+    g_env.cols = win.ws_col;
+    if (!g_env.cols)
+    	g_env.cols = 80;
 }

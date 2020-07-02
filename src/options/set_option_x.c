@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_environment.c                                  :+:      :+:    :+:   */
+/*   set_option_x.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 23:26:24 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 06:31:27 by unite            ###   ########.fr       */
+/*   Created: 2020/06/25 18:51:54 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 21:15:18 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	get_environment(void)
+void	set_option_x()
 {
-	get_blocksize();
-	get_lscolors();
-	get_columns();
-	return (0);
+	g_opt.x = 1;
+	g_opt.l = 0;
+	g_opt.m = 0;
+	g_opt.C = 0;
+	g_opt._1 = 0;
 }

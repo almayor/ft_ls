@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 22:07:38 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 00:50:03 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 22:06:45 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char		*get_color_namstat(t_namstat *nst)
 	static char	escape_seq[21];
 	size_t		i;
 
+	if (!g_opt.G)
+		return ("");
 	i = 0;
 	while (i < 11)
 	{
@@ -84,4 +86,14 @@ char		*get_color_namstat(t_namstat *nst)
 		i++;
 	}
 	return ("");
+}
+
+char		*get_reset_color_namstat(t_namstat *nst)
+{
+	static char	escape_seq[21];
+
+	escape_seq[0] = '\0';
+	if (g_opt.G)
+		ft_strcpy(escape_seq, BG_DEF FG_DEF);
+	return (escape_seq);
 }

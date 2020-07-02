@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_environment.c                                  :+:      :+:    :+:   */
+/*   printable_path.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/27 23:26:24 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 06:31:27 by unite            ###   ########.fr       */
+/*   Created: 2020/07/02 15:57:38 by unite             #+#    #+#             */
+/*   Updated: 2020/07/02 16:06:40 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int	get_environment(void)
+char	*printable_path(char *path)
 {
-	get_blocksize();
-	get_lscolors();
-	get_columns();
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (path[i])
+	{
+		if (!ft_isprint(path[i]))
+			path[i] = '?';
+		i++;;
+	}
+	return (path);
 }

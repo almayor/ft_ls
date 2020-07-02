@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 23:56:29 by unite             #+#    #+#             */
-/*   Updated: 2020/06/28 09:30:53 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 06:33:04 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi2(const char *str, int *resp)
 {
-	long long	res;
+	intmax_t	res;
 	int			negative;
 
 	while (ft_isspace(*str))

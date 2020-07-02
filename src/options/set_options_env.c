@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:59:33 by unite             #+#    #+#             */
-/*   Updated: 2020/06/29 09:41:43 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/02 21:24:14 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 void	set_options_env()
 {
 	if (ft_strequ(getenv("USER"), "root"))
-		g_opt.A = 1;
+		set_option_A();
 	if (getenv("CLICOLOR"))
-		g_opt.G = 1;
-	if (!isatty(1) && !getenv("CLICOLOR_FORCE"))
-		g_opt.G = 0;
+		set_option_G();
 	if (!isatty(1))
-		g_opt._1 = 1;
+	{
+		set_option_1();
+		set_option_v();
+		if (!getenv("CLICOLOR_FORCE"))
+			g_opt.G = 0;
+	}
+	else
+	{
+		set_option_q();
+		set_option_C();
+	}
 }
