@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 05:13:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 23:52:20 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 02:02:27 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_nblocks_namstat(t_namstat *nst)
 {
-	static char	nblocks_s[OFF_T_BOUND + 1];
+	static char	nblocks_s[UINTMAX_LENGTH + 1];
 	blkcnt_t	nblocks;
 
 	if (g_opt.s)

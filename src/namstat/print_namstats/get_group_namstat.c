@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 22:14:56 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 03:20:16 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 02:02:38 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*get_group_namstat(t_namstat *nst)
 {
 	struct group	*group;
-	static char		gid[GID_T_BOUND + 1];
+	static char		gid[UINTMAX_LENGTH + 1];
 
 	if (g_opt.o)
 		return ("");

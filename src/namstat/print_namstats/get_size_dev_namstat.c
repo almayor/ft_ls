@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 01:57:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 01:20:16 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 02:02:22 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*get_dev_namstat(t_namstat *nst)
 
 static char	*get_size_namstat(t_namstat *nst)
 {
-	static char	size[OFF_T_BOUND + 1];
+	static char	size[UINTMAX_LENGTH + 1];
 	const char	*units[] = {"B", "K", "M", "G", "T", "P"};
 	long double	frac;
 	size_t		i;

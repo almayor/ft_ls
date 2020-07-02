@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 22:08:20 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 00:47:30 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 02:02:17 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*get_user_namstat(t_namstat *nst)
 {
 	struct passwd	*passwd;
-	static char		uid[UID_T_BOUND + 1];
+	static char		uid[UINTMAX_LENGTH + 1];
 
 	if (g_opt.n)
 		return (ft_utoa2(nst->stat.st_uid, uid));
