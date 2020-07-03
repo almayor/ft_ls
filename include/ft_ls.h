@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 02:51:29 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 02:58:48 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <pwd.h>
 # include <stdio.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <sys/ioctl.h>
 # include <sys/stat.h>
