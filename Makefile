@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/07/03 01:21:52 by unite            ###   ########.fr        #
+#    Updated: 2020/07/03 21:46:10 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,7 +142,7 @@ SRC = $(patsubst %.c, $(PATHS)/%.c, $(SRC_NAME))
 OBJ = $(patsubst %.c, $(PATHO)/%.o, $(SRC_NAME))
 DEP += $(patsubst %.c, $(PATHO)/%.d, $(SRC_NAME))
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(PATHL)/libftprintfgnl.a
 	$(LINK) $^ -o $@ $(LIBS)
 
 $(PATHO)/%.o : $(PATHS)/%.c

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 22:34:53 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 01:55:04 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:30:02 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,12 @@ void		recurse_namstats(t_namstat **nst)
 				ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->path, strerror(errno));
 			else
 			{
-				ft_printf("%s:\n", (*nst)->path);
+				ft_printf("\n%s:\n", (*nst)->path);
 				if (g_opt.l)
 					ft_printf("total %lld\n", nblocks_namstats(dir_nst));
 				process_namstats(dir_nst);
 				free_namstats(dir_nst);
 			}
-			if (*(nst + 1))
-				ft_puts("\n");
 		}
 		errno = 0;
 		nst++;

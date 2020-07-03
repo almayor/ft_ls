@@ -6,26 +6,28 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 05:21:10 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 01:54:57 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:29:46 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	iterdir_namstats(t_namstat **nst)
+void	iterdir_namstats(t_namstat **nst, int multi)
 {
 	t_namstat	**dir_nst;
-	int			multi;
+	int			first;
 
 	if (!nst)
 		return ;
-	multi = nst[1] != NULL;
+	first = 1;
 	while (*nst)
 	{
 		if (!(dir_nst = getdir_namstats((*nst)->path)))
 			ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->path, strerror(errno));
 		else
 		{
+			if (!first)
+				ft_puts("\n");
 			if (multi)
 				ft_printf("%s:\n", (*nst)->path);
 			if (g_opt.l)
@@ -33,8 +35,7 @@ void	iterdir_namstats(t_namstat **nst)
 			process_namstats(dir_nst);
 			free_namstats(dir_nst);
 		}
-		if (*(nst + 1))
-			ft_puts("\n");
+		first = 0;
 		errno = 0;
 		nst++;
 	}

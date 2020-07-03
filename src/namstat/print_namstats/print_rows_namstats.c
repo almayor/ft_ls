@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 06:38:10 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 22:36:59 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:03:27 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void		print_row_namstats(t_namstat **nst, size_t width,
 	j = 0;
 	while (j < ncols)
 	{
-		print_name_namstat(*nst, width, j == ncols - 1);
+		print_name_namstat(*nst, width, j + 1 == ncols);
 		nst += 1;
 		j++;
 	}
@@ -94,14 +94,14 @@ void			print_rows_namstats(t_namstat **nst)
 	len = len_namstats(nst);
 	width = get_colwidth(nst);
 	ncols = g_env.cols < width ? 1 : g_env.cols / width;
-	nrows = ceil_divide(len, ncols);
+	nrows = ceil_divide(len, g_env.cols < width ? 1 : g_env.cols / width);
 	i = 0;
 	while (i < nrows)
 	{
 		print_row_namstats(
 			nst + i * ncols,
 			width,
-			ceil_divide(len - i, nrows));
+			i + 1 == nrows ? len % ncols : ncols);
 		i++;
 	}
 }

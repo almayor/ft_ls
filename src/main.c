@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:26:07 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 01:54:54 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:29:02 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 		process_namstats(regs);
 		if (dirs && *regs && *dirs)
 			ft_putstr("\n");
-		iterdir_namstats(dirs);
+		iterdir_namstats(dirs, len_tab(argv) > 1);
 	}
 	free_namstats(regs);
 	free_namstats(dirs);

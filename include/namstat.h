@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 01:21:28 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:09:04 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_namstat
 
 t_namstat		**getdir_namstats(const char *path);
 t_namstat		*get_namstat(const char *path);
-void			iterdir_namstats(t_namstat **nst);
+void			iterdir_namstats(t_namstat **nst, int multi);
 void			free_namstats(t_namstat **nst);
 size_t			len_namstats(t_namstat **nst);
 blkcnt_t		nblocks_namstats(t_namstat	**nst);
