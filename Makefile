@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/07/03 21:46:10 by unite            ###   ########.fr        #
+#    Updated: 2020/07/03 23:56:12 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,8 @@ SRC_NAME = \
 ./options/set_option_T_.c \
 ./options/set_option_U_.c \
 ./options/set_option_a.c \
-./options/set_option_at.c \
 ./options/set_option_c.c \
 ./options/set_option_d.c \
-./options/set_option_e.c \
 ./options/set_option_f.c \
 ./options/set_option_h.c \
 ./options/set_option_i.c \

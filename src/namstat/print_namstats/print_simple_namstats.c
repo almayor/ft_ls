@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 06:55:06 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 00:06:31 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 22:46:06 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static const char *g_fmts[] = {
 
 static size_t	*get_field_widths(t_namstat **nst)
 {
-	static size_t	widths[4];
+	static size_t	widths[5];
 	size_t			i;
 	size_t			j;
 	char			*str;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		widths[i] = 0;
 		j = 0;
@@ -61,7 +61,7 @@ void	print_simple_namstats(t_namstat **nst)
 	while (*nst)
 	{
 		i = 0;
-		while (i < 4)
+		while (i < 5)
 		{ 
 			if (widths[i])
 				ft_printf(g_fmts[i], widths[i], g_funs[i](*nst));

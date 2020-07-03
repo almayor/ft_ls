@@ -6,18 +6,17 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 23:32:16 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 23:55:45 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPTIONS_H
 # define OPTIONS_H
 
-# define OPTIONS	"@ACFGLRSTUacdefhilmnopqrstuvx1"
+# define OPTIONS	"ACFGLRSTUacdfhilmnopqrstuvx1"
 
 typedef struct	s_options
 {
-	int			at;
 	int			A;
 	int			C;
 	int			F;
@@ -30,7 +29,6 @@ typedef struct	s_options
 	int			a;
 	int			c;
 	int			d;
-	int			e;
 	int			f;
 	int			h;
 	int			i;
@@ -53,7 +51,6 @@ typedef struct	s_options
 t_options		g_opt;
 
 int				get_options(char ***argv);
-void			set_option_at();
 void			set_option_1();
 void			set_option_A();
 void			set_option_C();
@@ -67,7 +64,6 @@ void			set_option_U();
 void			set_option_a();
 void			set_option_c();
 void			set_option_d();
-void			set_option_e();
 void			set_option_f();
 void			set_option_h();
 void			set_option_i();

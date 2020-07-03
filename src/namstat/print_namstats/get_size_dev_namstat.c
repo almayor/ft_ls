@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 01:57:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 21:52:07 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/03 23:47:02 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static char	*get_dev_namstat(t_namstat *nst)
 {
-	static char	dev[7];
+	static char	dev[9];
 
-	ft_sprintf(dev, "%ju, %3ju",
+	ft_snprintf(dev, 9, "%3ju, %3ju",
 		(uintmax_t)major(nst->stat.st_rdev),
 		(uintmax_t)minor(nst->stat.st_rdev));
 	return (dev);
@@ -39,9 +39,9 @@ static char	*get_size_namstat(t_namstat *nst)
 			i++;
 		}
 		if (frac < 10)
-			ft_sprintf(size, "%.1f%s", frac, units[i]);
+			ft_sprintf(size, "% .1Lf%s", frac, units[i]);
 		else
-			ft_sprintf(size, "%ju%s", (uintmax_t)frac, units[i]);
+			ft_sprintf(size, "% ju%s", (uintmax_t)(frac + 0.5), units[i]);
 	}
 	else
 		ft_sprintf(size, "%ju", (uintmax_t)nst->stat.st_size);
