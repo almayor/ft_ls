@@ -71,7 +71,7 @@ _Flags realised_
 * `-v`
 * `-x`
 
-(please note that `-i` and `-s` only long together with `-l`)
+(please note that `-i` and `-s` only work in combination with `-l`)
 
 Colors, ACL and extended attributes are all supported. Performance as tested on a very large directory with `-lR` specified is ~70% of the standard `ls`.
 
