@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 04:01:09 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:59:03 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ static char	get_type_namstat(t_namstat *nst)
 		return ('p');
 	return ('-');
 }
-
-#if defined(SYS_ACL_H) && defined(XATTR_NOFOLLOW)
 
 static int	has_acl_namstat(t_namstat *nst)
 {
@@ -66,24 +64,3 @@ char		*get_access_namstat(t_namstat *nst)
 		access[10] = ' ';
 	return (access);
 }
-
-#else
-
-char		*get_access_namstat(t_namstat *nst)
-{
-	const char	bits[] = "rwxrwxrwx";
-	static char	access[12];
-	size_t		i;
-
-	access[0] = get_type_namstat(nst);
-	i = 0;
-	while (i < 9)
-	{
-		access[i + 1] = (nst->stat.st_mode & (1 << (8 - i))) ? bits[i] : '-';
-		i++;
-	}
-	access[10] = ' ';
-	return (access);
-}
-
-#endif
