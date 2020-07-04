@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:19:41 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:25:34 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@
 #  define st_atimespec st_atim
 #  define st_ctimespec st_ctim
 #  define st_mtimespec st_mtim
+# endif
+
+# if !defined(_DARWIN_FEATURE_64_BIT_INODE)
+#  define st_birthtimespec st_ctim
 # endif
 
 # include "ansi_escape_codes.h"

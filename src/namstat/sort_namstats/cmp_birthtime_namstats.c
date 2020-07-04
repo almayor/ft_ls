@@ -6,13 +6,11 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 01:39:47 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:23:46 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:25:42 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-#ifdef _DARWIN_FEATURE_64_BIT_INODE
 
 int	cmp_birthtime_namstats(t_namstat *n1, t_namstat *n2)
 {
@@ -31,12 +29,3 @@ int	cmp_birthtime_namstats(t_namstat *n1, t_namstat *n2)
 		return (1);
 	return (0);
 }
-
-#else
-
-int	cmp_birthtime_namstats(t_namstat *n1, t_namstat *n2)
-{
-	return (cmp_ctime_namstats(n1, n2));
-}
-
-#endif
