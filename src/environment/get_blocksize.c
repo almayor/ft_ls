@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:28:02 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:02:51 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:03:55 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		get_blocksize(void)
 		ft_dprintf(2, "ft_ls: minimum blocksize is 512\n");
 		g_env.blksize = 512;
 	}
-	else if (ft_atoi2(blk_s, &(g_env.blksize)) > 0)
+	else if (ft_atoi2(blk_s, (int *)&(g_env.blksize)) > 0)
 	{
 		ft_dprintf(2, "ft_ls: maximum blocksize is 1G\n");
 		g_env.blksize = 1000000000;
