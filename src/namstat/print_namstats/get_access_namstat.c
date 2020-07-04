@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 02:51:05 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:08:09 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,21 @@ static int	has_acl_namstat(t_namstat *nst)
 
 #endif
 
+#ifdef  XATTR_NOFOLLOW
+
 static int	has_xattr_namstat(t_namstat *nst)
 {
 	return (listxattr(nst->path, NULL, 0, XATTR_NOFOLLOW) > 0);
 }
+
+#else
+
+static int	has_xattr_namstat(t_namstat *nst)
+{
+	return (listxattr(nst->path, NULL, 0) > 0);
+}
+
+#endif
 
 char		*get_access_namstat(t_namstat *nst)
 {
