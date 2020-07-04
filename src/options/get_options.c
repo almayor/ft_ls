@@ -56,7 +56,7 @@ int			get_options(char ***argv)
 			else
 			{
 				ft_dprintf(2, "ft_ls: illegal option -- %c\n", ***argv);
-				ft_dprintf(2, "usage: ls [%s] [file ...]\n", OPTIONS);
+				ft_dprintf(2, "usage: ft_ls [-%s] [file ...]\n", OPTIONS);
 				return (-1);
 			}
 		}
