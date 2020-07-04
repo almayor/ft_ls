@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:25:34 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:08:39 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,6 @@
 # include <time.h>
 # include <unistd.h>
 # include "libftprintfgnl.h"
-
-# if defined(__has_include)
-#  if __has_include("sys/acl.h")
-#   include <sys/acl.h>
-#  endif
-# endif
-
-# if !defined(__APPLE__) && !defined(__NetBSD__) 
-#  define st_atimespec st_atim
-#  define st_ctimespec st_ctim
-#  define st_mtimespec st_mtim
-# endif
-
-# if !defined(_DARWIN_FEATURE_64_BIT_INODE)
-#  define st_birthtimespec st_ctim
-# endif
 
 # include "ansi_escape_codes.h"
 # include "buffer_limits.h"

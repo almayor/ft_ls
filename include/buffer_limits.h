@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 05:09:09 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 02:00:44 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:10:25 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** NOTE: not using functional macros as they are forbidden by the Norm
 */
 
-# define UINTMAX_LENGTH	(241 * sizeof(uintmax_t) / 100 + 1)
-# define INTMAX_LENGTH	(241 * sizeof(intmax_t) / 100 + 1)
+# define UINTMAX_LENGTH	20
+# define INTMAX_LENGTH	20
 
 #endif

@@ -6,14 +6,13 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 16:58:44 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:04:47 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-
-size_t	len_namstats(t_namstat	**nst)
+size_t	len_namstats(t_namstat **nst)
 {
 	size_t	len;
 

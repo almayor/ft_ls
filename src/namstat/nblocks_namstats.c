@@ -6,14 +6,13 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 23:52:29 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:04:53 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-
-blkcnt_t	nblocks_namstats(t_namstat	**nst)
+blkcnt_t	nblocks_namstats(t_namstat **nst)
 {
 	blkcnt_t	nblocks;
 

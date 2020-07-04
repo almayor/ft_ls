@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/07/04 03:47:46 by unite            ###   ########.fr        #
+#    Updated: 2020/07/04 04:11:56 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ SRC_NAME = \
 ./namstat/sort_namstats/cmp_size_namstats.c \
 ./namstat/sort_namstats/sort_namstats.c \
 ./options/get_options.c \
-./options/set_option_1.c \
+./options/set_option_one.c \
 ./options/set_option_aa.c \
 ./options/set_option_cc.c \
 ./options/set_option_ff.c \

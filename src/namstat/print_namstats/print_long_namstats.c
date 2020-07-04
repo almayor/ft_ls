@@ -6,13 +6,13 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 22:33:33 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 23:45:28 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:02:29 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static char *(* const g_funs[])(t_namstat *) = {
+static char *(*const g_funs[])(t_namstat *) = {
 	&get_ino_namstat,
 	&get_nblocks_namstat,
 	&get_access_namstat,
@@ -91,7 +91,7 @@ void			print_long_namstats(t_namstat **nst)
 	{
 		i = 0;
 		while (i < 13)
-		{ 
+		{
 			if (widths[i])
 				ft_printf(g_fmts[i], widths[i], g_funs[i](*nst));
 			i++;

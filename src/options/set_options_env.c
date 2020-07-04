@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:59:33 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:48:07 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:12:26 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_options_env(void)
 		set_option_gg();
 	if (!isatty(1))
 	{
-		set_option_1();
+		set_option_one();
 		set_option_v();
 	}
 	else

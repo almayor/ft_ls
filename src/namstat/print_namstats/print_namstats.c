@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 06:53:18 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 21:30:18 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:07:55 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_namstats(t_namstat **nst)
 		print_stream_namstats(nst);
 	else if (g_opt.x)
 		print_rows_namstats(nst);
-	else if (g_opt._1)
+	else if (g_opt.one)
 		print_simple_namstats(nst);
 	else
 		print_cols_namstats(nst);

@@ -6,14 +6,14 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 23:39:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:39:00 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:06:52 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
 static void	(*const g_dispatch_table[128])(void) = {
-	['1'] = &set_option_1,
+	['1'] = &set_option_one,
 	['A'] = &set_option_aa,
 	['C'] = &set_option_cc,
 	['F'] = &set_option_ff,

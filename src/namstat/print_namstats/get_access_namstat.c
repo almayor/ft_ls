@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:08:09 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:01:09 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char	get_type_namstat(t_namstat *nst)
 	return ('-');
 }
 
-#ifdef SYS_ACL_H
+#if defined(SYS_ACL_H) && defined(XATTR_NOFOLLOW)
 
 static int	has_acl_namstat(t_namstat *nst)
 {
@@ -40,30 +40,10 @@ static int	has_acl_namstat(t_namstat *nst)
 			(acl_get_entry(acl, ACL_FIRST_ENTRY, &entry) > 0));
 }
 
-#else
-
-static int	has_acl_namstat(t_namstat *nst)
-{
-	return (0);
-}
-
-#endif
-
-#ifdef  XATTR_NOFOLLOW
-
 static int	has_xattr_namstat(t_namstat *nst)
 {
 	return (listxattr(nst->path, NULL, 0, XATTR_NOFOLLOW) > 0);
 }
-
-#else
-
-static int	has_xattr_namstat(t_namstat *nst)
-{
-	return (listxattr(nst->path, NULL, 0) > 0);
-}
-
-#endif
 
 char		*get_access_namstat(t_namstat *nst)
 {
@@ -86,3 +66,24 @@ char		*get_access_namstat(t_namstat *nst)
 		access[10] = ' ';
 	return (access);
 }
+
+#else
+
+char		*get_access_namstat(t_namstat *nst)
+{
+	const char	bits[] = "rwxrwxrwx";
+	static char	access[12];
+	size_t		i;
+
+	access[0] = get_type_namstat(nst);
+	i = 0;
+	while (i < 9)
+	{
+		access[i + 1] = (nst->stat.st_mode & (1 << (8 - i))) ? bits[i] : '-';
+		i++;
+	}
+	access[10] = ' ';
+	return (access);
+}
+
+#endif

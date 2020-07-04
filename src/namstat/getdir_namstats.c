@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 15:39:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:42:16 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 04:05:26 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int			is_printed(const char *name)
 static ssize_t		count_files(const char *path)
 {
 	struct dirent	*dirent;
-	DIR		*dir;
-	ssize_t	count;
+	DIR				*dir;
+	ssize_t			count;
 
 	if (!(dir = opendir(path)))
 		return (-1);
@@ -56,7 +56,7 @@ static t_namstat	*next_namstat(DIR *dir, const char *path)
 	return (NULL);
 }
 
-t_namstat	**getdir_namstats(const char *path)
+t_namstat			**getdir_namstats(const char *path)
 {
 	DIR				*dir;
 	t_namstat		**nst;
