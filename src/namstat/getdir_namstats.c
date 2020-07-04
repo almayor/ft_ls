@@ -63,6 +63,7 @@ t_namstat			**getdir_namstats(const char *path)
 	ssize_t			count;
 	size_t			i;
 
+	nst = NULL;
 	if ((count = count_files(path)) >= 0 &&
 		(nst = ft_calloc(sizeof(t_namstat *), count + 1)) &&
 		(dir = opendir(path)))

@@ -25,11 +25,11 @@ void		recurse_namstats(t_namstat **nst)
 	{
 		if (!is_special_name((*nst)->base) && is_dir_namstat(*nst))
 		{
+			ft_printf("\n%s:\n", (*nst)->path);
 			if (!(dir_nst = getdir_namstats((*nst)->path)))
 				ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->path, strerror(errno));
 			else
 			{
-				ft_printf("\n%s:\n", (*nst)->path);
 				if (g_opt.l)
 					ft_printf("total %lld\n", nblocks_namstats(dir_nst));
 				process_namstats(dir_nst);
