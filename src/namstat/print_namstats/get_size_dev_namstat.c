@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 01:57:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:11:14 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 05:08:54 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static char	*get_size_namstat(t_namstat *nst)
 			i++;
 		}
 		if (frac < 10)
-			ft_sprintf(size, "% .1Lf%s", frac, units[i]);
+			ft_sprintf(size, "%3.1Lf%s", frac, units[i]);
 		else
-			ft_sprintf(size, "% ju%s", (uintmax_t)(frac + 0.5), units[i]);
+			ft_sprintf(size, "%4ju%s", (uintmax_t)(frac + 0.5), units[i]);
 	}
 	else
 		ft_sprintf(size, "%ju", (uintmax_t)nst->stat.st_size);
