@@ -6,18 +6,18 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:59:33 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 21:46:52 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:48:07 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	set_options_env()
+void	set_options_env(void)
 {
 	if (ft_strequ(getenv("USER"), "root"))
-		set_option_A();
+		set_option_aa();
 	if (getenv("CLICOLOR"))
-		set_option_G();
+		set_option_gg();
 	if (!isatty(1))
 	{
 		set_option_1();
@@ -26,6 +26,6 @@ void	set_options_env()
 	else
 	{
 		set_option_q();
-		set_option_C();
+		set_option_cc();
 	}
 }

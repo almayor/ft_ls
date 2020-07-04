@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 15:39:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 01:38:20 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:42:16 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int			is_printed(const char *name)
 {
 	return (name[0] != '.' ||
 			(g_opt.a) ||
-			(g_opt.A &&
+			(g_opt.aa &&
 				!ft_strequ(name, ".") &&
 				!ft_strequ(name, "..")));
 }

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 23:39:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 23:55:33 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:39:00 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void	(*const g_dispatch_table[128])(void) = {
 	['1'] = &set_option_1,
-	['A'] = &set_option_A,
-	['C'] = &set_option_C,
-	['F'] = &set_option_F,
-	['G'] = &set_option_G,
-	['L'] = &set_option_L,
-	['R'] = &set_option_R,
-	['S'] = &set_option_S,
-	['T'] = &set_option_T,
-	['U'] = &set_option_U,
+	['A'] = &set_option_aa,
+	['C'] = &set_option_cc,
+	['F'] = &set_option_ff,
+	['G'] = &set_option_gg,
+	['L'] = &set_option_ll,
+	['R'] = &set_option_rr,
+	['S'] = &set_option_ss,
+	['T'] = &set_option_tt,
+	['U'] = &set_option_uu,
 	['a'] = &set_option_a,
 	['c'] = &set_option_c,
 	['d'] = &set_option_d,

@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 22:08:20 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 03:16:27 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:46:43 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char	*get_time_namstat(t_namstat *nst)
 		tv_sec = nst->stat.st_ctimespec.tv_sec;
 	else if (g_opt.u)
 		tv_sec = nst->stat.st_atimespec.tv_sec;
-	else if (g_opt.U)
+	else if (g_opt.uu)
 		tv_sec = nst->stat.st_birthtimespec.tv_sec;
 	else
 		tv_sec = nst->stat.st_mtimespec.tv_sec;
 	time = ctime(&tv_sec);
-	if (!g_opt.T)
+	if (!g_opt.tt)
 		time[16] = '\0';
 	else
 		time[24] = '\0';

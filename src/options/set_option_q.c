@@ -6,13 +6,13 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 18:51:54 by unite             #+#    #+#             */
-/*   Updated: 2020/07/02 15:58:54 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:39:15 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	set_option_q()
+void	set_option_q(void)
 {
 	g_opt.q = 1;
 	g_opt.v = 0;

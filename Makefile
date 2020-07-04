@@ -6,7 +6,7 @@
 #    By: unite <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 02:09:26 by unite             #+#    #+#              #
-#    Updated: 2020/07/03 23:56:12 by unite            ###   ########.fr        #
+#    Updated: 2020/07/04 03:47:46 by unite            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,15 +62,15 @@ SRC_NAME = \
 ./namstat/sort_namstats/sort_namstats.c \
 ./options/get_options.c \
 ./options/set_option_1.c \
-./options/set_option_A_.c \
-./options/set_option_C_.c \
-./options/set_option_F_.c \
-./options/set_option_G_.c \
-./options/set_option_L_.c \
-./options/set_option_R_.c \
-./options/set_option_S_.c \
-./options/set_option_T_.c \
-./options/set_option_U_.c \
+./options/set_option_aa.c \
+./options/set_option_cc.c \
+./options/set_option_ff.c \
+./options/set_option_gg.c \
+./options/set_option_ll.c \
+./options/set_option_rr.c \
+./options/set_option_ss.c \
+./options/set_option_tt.c \
+./options/set_option_uu.c \
 ./options/set_option_a.c \
 ./options/set_option_c.c \
 ./options/set_option_d.c \

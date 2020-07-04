@@ -6,14 +6,14 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 18:51:54 by unite             #+#    #+#             */
-/*   Updated: 2020/06/26 04:18:52 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:37:27 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	set_option_t()
+void	set_option_t(void)
 {
-	if (g_opt.S == 0)
+	if (g_opt.ss == 0)
 		g_opt.t = 1;
 }

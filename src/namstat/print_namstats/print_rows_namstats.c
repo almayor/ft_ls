@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 06:38:10 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 22:03:27 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:44:01 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	get_colwidth(t_namstat **nst)
 			max_len = name_len;
 		nst++;
 	}
-	if (!g_opt.G)
+	if (!g_opt.gg)
 		max_len = max_len % 8 ? ceil_divide(max_len, 8) * 8 : max_len + 8;
 	else
 		max_len += 1;
@@ -58,7 +58,7 @@ static void		print_name_namstat(t_namstat *nst, size_t width, int isfinal)
 		ft_strlen(get_reset_color_namstat(nst)));
 	if (isfinal)
 		ft_printf("%-s\n", fullname);
-	else if (g_opt.G)
+	else if (g_opt.gg)
 		ft_printf("%-*s", width + escape_len, fullname);
 	else
 	{
