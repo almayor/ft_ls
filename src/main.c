@@ -6,11 +6,14 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:26:07 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 22:29:02 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:29:54 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+t_options		g_opt;
+t_environment	g_env;
 
 static int	init_paths(char **paths, t_namstat **regs, t_namstat **dirs)
 {

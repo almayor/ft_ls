@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 23:17:41 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 23:55:45 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:29:17 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct	s_options
 	int			_1;
 }				t_options;
 
-t_options		g_opt;
+extern t_options	g_opt;
 
 int				get_options(char ***argv);
 void			set_option_1();
