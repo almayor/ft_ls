@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 23:24:40 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 02:58:48 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:19:41 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@
 #  if __has_include("sys/acl.h")
 #   include <sys/acl.h>
 #  endif
+# endif
+
+# if !defined(__APPLE__) && !defined(__NetBSD__) 
+#  define st_atimespec st_atim
+#  define st_ctimespec st_ctim
+#  define st_mtimespec st_mtim
 # endif
 
 # include "ansi_escape_codes.h"
