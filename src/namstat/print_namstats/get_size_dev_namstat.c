@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 01:57:03 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 23:47:02 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/04 03:11:14 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static char	*get_dev_namstat(t_namstat *nst)
 	static char	dev[9];
 
 	ft_snprintf(dev, 9, "%3ju, %3ju",
-		(uintmax_t)major(nst->stat.st_rdev),
-		(uintmax_t)minor(nst->stat.st_rdev));
+		(uintmax_t)((nst->stat.st_rdev >> 24) & 0xff),
+		(uintmax_t)(nst->stat.st_rdev & 0xffffff));
 	return (dev);
 }
 
