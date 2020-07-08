@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 22:34:53 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 22:30:02 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/08 20:15:29 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_special_name(char *name)
 {
-	return (ft_strequ(name, ".") && !ft_strequ(name, ".."));
+	return (ft_strequ(name, ".") || ft_strequ(name, ".."));
 }
 
 void		recurse_namstats(t_namstat **nst)
