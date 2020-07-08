@@ -73,6 +73,13 @@ _Flags realised_
 
 (please note that `-i` and `-s` only work in combination with `-l`)
 
+Support of the following environmental variables is implemented
+
+* `BLOCKSIZE`
+* `CLICOLOR`
+* `CLICOLOR_FORCE`
+* `LSCOLORS`
+
 Colors, ACL and extended attributes are all supported. Performance as tested on a very large directory with `-lR` specified is ~70% of the standard `ls`.
 
 # Build
