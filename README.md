@@ -51,7 +51,7 @@ _Flags realised_
 * `-f`
 * `-G`
 * `-h`
-* `-i`
+* `-i` (only works in combination with `-l`)
 * `-k`
 * `-L`
 * `-l` (mandatory)
@@ -63,15 +63,13 @@ _Flags realised_
 * `-R` (mandatory)
 * `-r` (mandatory)
 * `-S`
-* `-s`
+* `-s` (only works in combination with `-l`)
 * `-T`
 * `-t` (mandatory)
 * `-u`
 * `-U`
 * `-v`
 * `-x`
-
-(please note that `-i` and `-s` only work in combination with `-l`)
 
 Support of the following environmental variables is implemented
 
