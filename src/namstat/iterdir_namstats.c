@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 05:21:10 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 22:29:46 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 19:28:49 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	iterdir_namstats(t_namstat **nst, int multi)
 	while (*nst)
 	{
 		if (!(dir_nst = getdir_namstats((*nst)->path)))
-			ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->path, strerror(errno));
+			ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->base, strerror(errno));
 		else
 		{
 			if (!first)

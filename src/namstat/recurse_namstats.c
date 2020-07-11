@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 22:34:53 by unite             #+#    #+#             */
-/*   Updated: 2020/07/08 20:15:29 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 19:28:37 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		recurse_namstats(t_namstat **nst)
 		{
 			ft_printf("\n%s:\n", (*nst)->path);
 			if (!(dir_nst = getdir_namstats((*nst)->path)))
-				ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->path, strerror(errno));
+				ft_dprintf(2, "ft_ls: %s: %s\n", (*nst)->base, strerror(errno));
 			else
 			{
 				if (g_opt.l)
