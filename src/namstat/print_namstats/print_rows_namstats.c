@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 06:38:10 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 03:44:01 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 19:40:37 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void			print_rows_namstats(t_namstat **nst)
 		print_row_namstats(
 			nst + i * ncols,
 			width,
-			i + 1 == nrows ? len % ncols : ncols);
+			i + 1 == nrows ? len - i * ncols : ncols);
 		i++;
 	}
 }
