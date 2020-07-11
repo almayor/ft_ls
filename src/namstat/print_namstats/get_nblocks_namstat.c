@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 05:13:15 by unite             #+#    #+#             */
-/*   Updated: 2020/07/03 02:02:27 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 20:05:31 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*get_nblocks_namstat(t_namstat *nst)
 	if (g_opt.s)
 	{
 		if (g_opt.k)
-			nblocks = nst->stat.st_blocks / 2;
+			nblocks = ceil_divide(nst->stat.st_blocks, 2);
 		else
-			nblocks = nst->stat.st_blocks / (g_env.blksize / 512);
+			nblocks = ceil_divide(nst->stat.st_blocks, g_env.blksize / 512);
 		ft_sprintf(nblocks_s, "%ju", nblocks);
 	}
 	else

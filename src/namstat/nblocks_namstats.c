@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 06:44:11 by unite             #+#    #+#             */
-/*   Updated: 2020/07/04 04:04:53 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 20:15:54 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 blkcnt_t	nblocks_namstats(t_namstat **nst)
 {
-	blkcnt_t	nblocks;
+	uintmax_t	tot_512blk;
 
-	nblocks = 0;
+	tot_512blk = 0;
 	while (*nst)
 	{
-		if (!is_blk_namstat(*nst) && !is_chr_namstat(*nst))
-			nblocks += (*nst)->stat.st_blocks / (g_env.blksize / 512);
+		tot_512blk += (*nst)->stat.st_blocks;
 		nst++;
 	}
-	return (nblocks);
+	return (ceil_divide(tot_512blk, g_env.blksize / 512));
 }
