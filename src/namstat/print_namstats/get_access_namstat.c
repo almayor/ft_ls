@@ -6,7 +6,7 @@
 /*   By: unite <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 23:16:50 by unite             #+#    #+#             */
-/*   Updated: 2020/07/09 16:26:23 by unite            ###   ########.fr       */
+/*   Updated: 2020/07/11 20:32:57 by unite            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,17 @@ static void	set_type_namstat(t_namstat *nst, char* access)
 		access[0] = '-';
 }
 
-static void	set_acl_namstat(t_namstat *nst, char* access)
+static void	set_acl_xattr_namstat(t_namstat *nst, char* access)
 {
-	acl_t		acl;
-	acl_entry_t	entry;
+	acl_t	acl;
 
-	if ((acl = acl_get_link_np(nst->path, ACL_TYPE_EXTENDED)) &&
-		(acl_get_entry(acl, ACL_FIRST_ENTRY, &entry) > 0))
-		access[10] = '+';
-	else
-		access[10] = ' ';
-}
-
-static void	set_xattr_namstat(t_namstat *nst, char* access)
-{
 	if (listxattr(nst->path, NULL, 0, XATTR_NOFOLLOW) > 0)
 		access[10] = '@';
+	else if ((acl = acl_get_file(nst->path, ACL_TYPE_EXTENDED)))
+	{
+		access[10] = '+';
+		acl_free(acl);
+	}
 	else
 		access[10] = ' ';
 }
@@ -73,8 +68,7 @@ char		*get_access_namstat(t_namstat *nst)
 		i++;
 	}
 	set_type_namstat(nst, access);
-	set_acl_namstat(nst, access);
-	set_xattr_namstat(nst, access);
+	set_acl_xattr_namstat(nst, access);
 	set_flags_namstat(nst, access);
 	return (access);
 }
